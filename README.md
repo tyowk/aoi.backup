@@ -42,33 +42,33 @@ client.command({
 <br>
 <br>
 
-## Functions
-#### Backup Create
+# Functions
+### Backup Create
 ```
 $backupCreate[max messages?;backup members?;backup channels?;backup roles?;backup bans?;backup emojis?]
 ```
 > Create a backup for the specified server.
-#### Backup Fetch
+### Backup Fetch
 ```
 $backupFetch[backup id]
 ```
 > Fetches information from a backup. The backup info provides a data, id, and size property.
-#### Backup Load
+### Backup Load
 ```
 $backupLoad[backup id;max messages?;clear guild?;load main?;load roles assignments?;load emojis?]
 ```
 > Allows you to load a backup on a Discord server!
-#### Backup List
+### Backup List
 ```
 $backupList[separator?]
 ```
 > ***Note:*** `$backupList[ ]` ***simply returns an list of Backup IDs, you must fetch the ID to get complete information.***
-#### Backup Remove
+### Backup Remove
 ```
 $backupRemove[backup id]
 ```
 > Remove the backup from given ID. ***Warn: once the backup is removed, it is impossible to recover it!***
-#### Backup Folder
+### Backup Folder
 ```
 $backupFolder[path]
 ```
@@ -76,4 +76,4 @@ $backupFolder[path]
 <br>
 <br>
 
-<p align="center">made with ♥️ by <a href="https://x.com/tyowk" style="text-decoration: none;">Tyowk</a></p>
+<p align="center">made with ♥️ by <a href="https://github.com/tyowk" style="text-decoration: none;">Tyowk</a><br>Aoi.js by Akarui Development</p>
