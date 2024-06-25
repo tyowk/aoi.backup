@@ -1,0 +1,47 @@
+{
+    "name": "aoi.backup",
+    "version": "0.0.1",
+    "description": "Aoi.backup - Easily manage discord server backups in Aoi.js",
+    "main": "src/index.js",
+    "scripts": {
+        "start": "node src/index.js",
+        "dev": "nodemon src/index.js"
+    },
+    "dependencies": {
+        "@outwalk/discord-backup": "^0.7.2"
+    },
+    "devDependencies": {
+        "aoi.js": "^6.7.1",
+        "discord.js": "^14.14.1"
+    },
+    "author": "Tyowk <tyowk@outlook.com>",
+    "homepage": "https://aoibackup.vercel.app",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/tyowk/aoi.backup.git"
+    },
+    "bugs": {
+        "url": "https://github.com/tyowk/aoi.backup/issues"
+    },
+    "engines": {
+         "node": ">=16"
+    },
+    "keywords": [
+        "backup",
+        "aoi",
+        "aoi.js",
+        "bdfd",
+        "dbd",
+        "dbd.js",
+        "dbd.ts",
+        "bdfd.js",
+        "discord-backup",
+        "discord",
+        "discord.js"
+    ],
+    "files": [
+        "src",
+        "README.md"
+    ]
+}
