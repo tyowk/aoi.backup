@@ -1,6 +1,10 @@
-<h1 align="center">Aoi.backup</h1>
+<p align="center">
+  <a>
+    <img width="500" src="https://github.com/tyowk/aoi.backup/main/docs/assets/icon2.png" alt="aoi.backup">
+  </a>
+</p>
 
-<p align="center">Aoi.backup is an extension for aoi.js, empowering you to easily create and manage Discord server backups using your aoi.js bot.</p>
+<b><p align="center">Aoi.backup is an extension for aoi.js, empowering you to easily create and manage Discord server backups using your aoi.js bot.</p></b>
 
 ---
 <br>
