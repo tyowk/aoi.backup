@@ -1,6 +1,6 @@
 {
     "name": "aoi.backup",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "Aoi.backup - Easily manage discord server backups in Aoi.js",
     "main": "src/index.js",
     "scripts": {
@@ -12,10 +12,11 @@
     },
     "devDependencies": {
         "aoi.js": "^6.7.1",
-        "discord.js": "^14.14.1"
+        "discord.js": "^14.14.1",
+        "nodemon": "^3.1.4"
     },
     "author": "Tyowk <tyowk@outlook.com>",
-    "homepage": "https://aoibackup.vercel.app",
+    "homepage": "https://github.com/tyowk/aoi.backup",
     "license": "MIT",
     "repository": {
         "type": "git",

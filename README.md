@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://aoibackup.vercel.app">
+  <a href="#">
     <img width="500" src="https://github.com/tyowk/aoi.backup/blob/main/docs/assets/icon2.png?raw=true" alt="aoi.backup">
   </a>
 </p>
@@ -12,11 +12,11 @@
 
 ## Installation
 ```sh
-npm install aoi.backup @outwalk/discord-backup
+npm install aoi.backup
 ```
 <br>
 
-## App Setup
+## Bot Setup
 ```js
 const { AoiClient } = require("aoi.js");
 const { AoiBackup } = require("aoi.backup");
@@ -35,7 +35,7 @@ const client = new AoiClient({
     }
 });
 
-const backup = new AoiBackup(client);
+const backup = new AoiBackup(client, './backups');
 
 // Command Example
 client.command({
@@ -56,7 +56,7 @@ $backupCreate[max messages?;backup members?;backup channels?;backup roles?;backu
 > Create a backup for the specified server.
 ### Backup Fetch
 ```
-$backupFetch[backup id]
+$backupFetch[backup id;type?]
 ```
 > Fetches information from a backup. The backup info provides a data, id, and size property.
 ### Backup Load
@@ -68,21 +68,25 @@ $backupLoad[backup id;max messages?;clear guild?;load main?;load roles assignmen
 ```
 $backupList[separator?]
 ```
-> ***Note:*** `$backupList[ ]` ***simply returns an list of Backup IDs, you must fetch the ID to get complete information.***
+> ***Note:*** `$backupList[sep?]` ***simply returns an list of Backup IDs, you must fetch the ID to get complete information.***
 ### Backup Remove
 ```
 $backupRemove[backup id]
 ```
 > Remove the backup from given ID. ***Warn: once the backup is removed, it is impossible to recover it!***
-### Backup Folder
-```
-$backupFolder[path / folder name]
-```
-> Updates the storage folder to another
 <br>
 <br>
 <br>
 <br>
 
 ---
-<p align="center"><a href="https://aoibackup.vercel.app"><img width="150" src="https://github.com/tyowk/aoi.backup/blob/main/docs/assets/icon2.png?raw=true" alt="aoi.backup"></a><br><strong>Extension by Tyowk<br>Akarui Development Team</strong></p>
+<p align="center">
+  <a href="#">
+    <img width="150" src="https://github.com/tyowk/aoi.backup/blob/main/docs/assets/icon2.png?raw=true" alt="aoi.backup">
+  </a>
+  <br>
+  <strong>Extension by Tyowk
+  <br>
+  Akarui Development Team
+  </strong>
+</p>
