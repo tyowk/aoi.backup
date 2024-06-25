@@ -1,6 +1,6 @@
 <p align="center">
   <a>
-    <img width="500" src="https://github.com/tyowk/aoi.backup/main/docs/assets/icon2.png" alt="aoi.backup">
+    <img width="500" src="https://github.com/tyowk/aoi.backup/tree/main/docs/assets/icon2.png?raw=true" alt="aoi.backup">
   </a>
 </p>
 
