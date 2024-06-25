@@ -51,7 +51,7 @@ $backupFetch[backup id]
 > Fetches information from a backup. The backup info provides a data, id, and size property.
 #### Backup Load
 ```
-$backupFetch[backup id;max messages?;clear guild?;load main?;load roles assignments?;load emojis?]
+$backupLoad[backup id;max messages?;clear guild?;load main?;load roles assignments?;load emojis?]
 ```
 > Allows you to load a backup on a Discord server!
 #### Backup List
