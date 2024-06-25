@@ -8,16 +8,12 @@ module.exports = class BackupFetchFunc {
     async execute(d) {
         const data = d.util.aoiFunc(d);
         if (data.err) return d.error(data.err);
-
-        const [backupId, type] = data.inside.splits;
-        if (!backupId) {
-            return d.aoiError.fnError(d, 'custom', {}, 'No Backup ID Provided In');
-        }
-        if (!type) {
-            return d.aoiError.fnError(d, 'custom', {}, 'No Backup Fetch Type Provided In');
-        }
-
         try {
+            const [backupId, type] = data.inside.splits;
+            if (!backupId) {
+                return d.aoiError.fnError(d, 'custom', {}, 'No Backup ID Provided In');
+            }
+            
             const backupData = await this.backup.fetch(backupId);
             if (!backupData) {
                 return d.aoiError.fnError(d, 'custom', {}, 'No Backup Found');
@@ -32,18 +28,18 @@ module.exports = class BackupFetchFunc {
                     result = backupData.size;
                     break;
                 case 'data':
-                    result = backupData.data;
+                    result = await backupData.data;
                     break;
                 default:
-                    return d.aoiError.fnError(d, 'custom', {}, 'Invalid Backup Fetch Type Provided In');
+                    result = await backupData;
             }
 
             data.result = result;
             return {
                 code: d.util.setCode(data),
             };
-        } catch (error) {
-            return d.aoiError.fnError(d, 'custom', {}, error.name);
+        } catch (err) {
+            return d.aoiError.fnError(d, 'custom', {}, `${err.name}: ${err.message}`);
         }
     }
 }

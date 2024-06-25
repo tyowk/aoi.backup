@@ -7,20 +7,19 @@ module.exports = class BackupRemoveFunc {
 
     async execute(d) {
         const data = d.util.aoiFunc(d);
-        if (data.err) return d.error(data.err);
-
-        const [ backupId ] = data.inside.splits;
-        if (!backupId) return d.aoiError.fnError(d, 'custom', {}, 'No Backup ID Provided In');
-
+        if (data.err) return d.error(data.err)
+;
         try {
-            this.backup.remove(backupId);
-        } catch (err) {
-            return d.aoiError.fnError(d, 'custom', {}, err.name);
-        }
+            const [ backupId ] = data.inside.splits;
+            if (!backupId) return d.aoiError.fnError(d, 'custom', {}, 'No Backup ID Provided In');
 
-        data.result = null;
-        return {
-            code: d.util.setCode(data),
-        };
+            await this.backup.remove(backupId);
+            data.result = null;
+            return {
+                code: d.util.setCode(data),
+            };
+        } catch (err) {
+            return d.aoiError.fnError(d, 'custom', {}, `${err.name}: ${err.message}`);
+        }
     }
 }
