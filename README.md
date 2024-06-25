@@ -76,4 +76,5 @@ $backupFolder[path]
 <br>
 <br>
 
-<p align="center" style="text-decoration-underline: none;">made with ♥️ by <a href="https://github.com/tyowk">Tyowk</a><br><a href="https://github.com/aoijs/aoi.js">Aoi.js</a> by <a href="https://github.com/aoijs">Akarui Development</a></p>
+---
+<p align="center">made with ♥️ by <a href="https://github.com/tyowk">Tyowk</a><br><a href="https://github.com/aoijs/aoi.js">Aoi.js</a> by <a href="https://github.com/aoijs">Akarui Development</a></p>
