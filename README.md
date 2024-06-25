@@ -74,7 +74,7 @@ $backupRemove[backup id]
 > Remove the backup from given ID. ***Warn: once the backup is removed, it is impossible to recover it!***
 ### Backup Folder
 ```
-$backupFolder[path]
+$backupFolder[path / folder name]
 ```
 > Updates the storage folder to another
 <br>
