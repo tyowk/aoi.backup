@@ -1,4 +1,4 @@
-name: Node.js Package
+name: Npm Publish
 
 on:
   release:
@@ -27,4 +27,4 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
