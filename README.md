@@ -16,7 +16,7 @@ npm install aoi.backup @outwalk/discord-backup
 ```
 <br>
 
-## Bot Setup
+## App Setup
 ```js
 const { AoiClient } = require("aoi.js");
 const { AoiBackup } = require("aoi.backup");
@@ -46,7 +46,7 @@ client.command({
 <br>
 <br>
 
-# Functions
+## Available Functions
 ### Backup Create
 ```
 $backupCreate[max messages?;backup members?;backup channels?;backup roles?;backup bans?;backup emojis?]
@@ -83,4 +83,4 @@ $backupFolder[path]
 <br>
 
 ---
-<p align="center"><a href="#"><img width="150" src="https://github.com/tyowk/aoi.backup/blob/main/docs/assets/icon2.png?raw=true" alt="aoi.backup"></a><br><strong>Akarui Development</strong></p>
+<p align="center"><a href="#"><img width="150" src="https://github.com/tyowk/aoi.backup/blob/main/docs/assets/icon2.png?raw=true" alt="aoi.backup"></a><br><strong>Extension by Tyowk<br>Akarui Development Team</strong></p>
