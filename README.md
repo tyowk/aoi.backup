@@ -1,15 +1,18 @@
-# Aoi.backup
+<h1 align="center">Aoi.backup</h1>
 
-Aoi.backup is an extension for aoi.js, empowering you to easily create and manage Discord server backups using your aoi.js bot.
+<p align="center">Aoi.backup is an extension for aoi.js, empowering you to easily create and manage Discord server backups using your aoi.js bot.</p>
+
+---
+<br>
+<br>
 
 ## Installation
-
 ```sh
 npm install aoi.backup @outwalk/discord-backup
 ```
+<br>
 
 ## Bot Setup
-
 ```js
 const { AoiClient } = require("aoi.js");
 const { AoiBackup } = require("aoi.backup");
@@ -36,9 +39,10 @@ client.command({
     code: `$backupCreate[10;false;true;true;false;false]` // return the Backup ID
 });
 ```
+<br>
+<br>
 
 ## Functions
-
 #### Backup Create
 ```
 $backupCreate[max messages?;backup members?;backup channels?;backup roles?;backup bans?;backup emojis?]
@@ -69,5 +73,7 @@ $backupRemove[backup id]
 $backupFolder[path]
 ```
 > Updates the storage folder to another
+<br>
+<br>
 
-*made with ♥️ by [Tyowk](https://x.com/tyowk).*
+<p align="center">made with ♥️ by <a href="https://x.com/tyowk" style="text-decoration: none;">Tyowk</a></p>
