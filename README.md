@@ -1,9 +1,9 @@
 <p align="center">
-  <a>
-    <img width="500" src="https://github.com/tyowk/aoi.backup/tree/main/docs/assets/icon2.png?raw=true" alt="aoi.backup">
+  <a href="#">
+    <img width="500" src="https://github.com/tyowk/aoi.backup/blob/main/docs/assets/icon2.png?raw=true" alt="aoi.backup">
   </a>
 </p>
-
+<br>
 <b><p align="center">Aoi.backup is an extension for aoi.js, empowering you to easily create and manage Discord server backups using your aoi.js bot.</p></b>
 
 ---
@@ -79,6 +79,8 @@ $backupFolder[path]
 > Updates the storage folder to another
 <br>
 <br>
+<br>
+<br>
 
 ---
-<p align="center">made with ♥️ by <a href="https://github.com/tyowk">Tyowk</a><br><a href="https://github.com/aoijs/aoi.js">Aoi.js</a> by <a href="https://github.com/aoijs">Akarui Development</a></p>
+<p align="center"><a href="#"><img width="150" src="https://github.com/tyowk/aoi.backup/blob/main/docs/assets/icon2.png?raw=true" alt="aoi.backup"></a><br><strong>Akarui Development</strong></p>
