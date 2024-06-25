@@ -27,11 +27,20 @@ module.exports = class BackupFetchFunc {
                 case 'size':
                     result = backupData.size;
                     break;
-                case 'data':
-                    result = await backupData.data;
+                case 'timestamp':
+                    result = backupData.data.createdTimestamp;
+                    break;
+                case 'name':
+                    result = backupData.data.name;
+                    break;
+                case 'guildid':
+                    result = backupData.data.guildId;
+                    break;
+                case 'icon':
+                    result = backupData.data.iconURL;
                     break;
                 default:
-                    result = await backupData;
+                    return d.aoiError.fnError(d, 'custom', {}, 'No Backup Data Type Provide In');
             }
 
             data.result = result;
