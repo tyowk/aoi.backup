@@ -1,11 +1,11 @@
-const { readdirSync } = require('fs');
-const { join } = require('path');
+const fs = require('fs');
+const path = require('path');
 const backup = require('@outwalk/discord-backup');
 const packageJson = require('../package.json');
 
 class AoiBackup {
-    constructor(client) {
-        this.__loadFunctions(client);
+    constructor(client, basePath = './backups') {
+        this.__loadFunctions(client, basePath);
 
         (async () => {
             try {
@@ -29,9 +29,13 @@ class AoiBackup {
         })();
     }
 
-    async __loadFunctions(client) {
+    async __loadFunctions(client, basePath = './backups') {
         try {
-            const files = await readdirSync(join(__dirname, 'functions'));
+            if (!fs.existsSync(basePath)) {
+                fs.mkdirSync(basePath);
+            }
+            backup.setStorageFolder(path.join(process.cwd(), basePath))
+            const files = await fs.readdirSync(path.join(__dirname, 'functions'));
             for (const file of files) {
                 if (file.endsWith('.js')) {
                     const FunctionClass = require(`./functions/${file}`);
