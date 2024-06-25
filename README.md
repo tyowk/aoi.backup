@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="#">
+  <a href="https://aoibackup.vercel.app">
     <img width="500" src="https://github.com/tyowk/aoi.backup/blob/main/docs/assets/icon2.png?raw=true" alt="aoi.backup">
   </a>
 </p>
@@ -83,4 +83,4 @@ $backupFolder[path / folder name]
 <br>
 
 ---
-<p align="center"><a href="#"><img width="150" src="https://github.com/tyowk/aoi.backup/blob/main/docs/assets/icon2.png?raw=true" alt="aoi.backup"></a><br><strong>Extension by Tyowk<br>Akarui Development Team</strong></p>
+<p align="center"><a href="https://aoibackup.vercel.app"><img width="150" src="https://github.com/tyowk/aoi.backup/blob/main/docs/assets/icon2.png?raw=true" alt="aoi.backup"></a><br><strong>Extension by Tyowk<br>Akarui Development Team</strong></p>
