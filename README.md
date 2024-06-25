@@ -15,8 +15,8 @@ const { AoiClient } = require("aoi.js");
 const { AoiBackup } = require("aoi.backup");
 
 const client = new AoiClient({
-    token: 'BOT_TOKEN',
-    prefix: 'BOT_PREFIX'
+    token: 'Discord Bot Token',
+    prefix: 'Discord Bot Prefix',
     intents: ["Guilds", "GuildMessages", "MessageContent"],
     events: ["onMessage"],
     database: {
