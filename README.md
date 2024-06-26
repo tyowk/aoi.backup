@@ -42,7 +42,7 @@ $backupCreate[max?;members?;channels?;roles?;bans?;emojis?]
 ```js
 client.command({
     name: 'create',
-    code: `$backupCreate[10;false;true;true;true;true]`
+    code: `$backupCreate[1000;false;true;true;true;true]`
 });
 
 // return example: 1294817399230028371
@@ -50,7 +50,7 @@ client.command({
 ### parameters
 | field | type | description| required |
 | :---: | :---: | :---: | :---: |
-| max? | number | max messages per channels? default is `10` | false |
+| max? | number | max messages per channels? default is `1000` | false |
 | message? | boolean | backup messages? default is `true` | false |
 | channels? | boolean | backup channels? default is `true` | false |
 | roles? | boolean | backup roles? default is `true` | false |
@@ -67,7 +67,7 @@ $backupLoad[ID;max?;clear?;main?;roles?;emojis?]
 ```js
 client.command({
     name: 'load',
-    code: `$backupLoad[1294817399230028371;10;true;true;false;false]`
+    code: `$backupLoad[1294817399230028371;1000;true;true;false;false]`
 });
 
 // will load the backup on spesified server
@@ -76,7 +76,7 @@ client.command({
 | field | type | description | required |
 | :---: | :---: | :---: | :---: |
 | ID | snowflake | backup id | true |
-| max? | number | max messages load? default is `10` | false |
+| max? | number | max messages load? default is `1000` | false |
 | clear? | boolean | clear guild before load? default is `true` | false |
 | main? | boolean | load the main backup? default is `true` | false |
 | roles? | boolean | load roles assignment? default is `false` | false |
