@@ -46,7 +46,7 @@ const backup = new AoiBackup(client, './backups');
 
 Create a backup for the specified server. ***Note:** The backup will be saved in the folder that was previously set*
 ```
-$backupCreate[maxMessages?;backupMembers?;backupChannels?;backupRoles?;backupBans?;backupEmojis?]
+$backupCreate[max?;members?;channels?;roles?;bans?;emojis?]
 ```
 ```js
 // command example
@@ -58,13 +58,22 @@ client.command({
 // will return the backup id
 // example: 1294817399230028371
 ```
+### parameters
+| field | type | description| required |
+| :---: | :---: | :---: | :---: |
+| max | number | max messages per channels | false |
+| message | boolean | backup messages on every channels? | false |
+| channels | boolean | backup all channels? | false |
+| roles | boolean | backup all roles? | false |
+| bans | boolean | backup all members bans? | false |
+| emojis | boolean | backup all emojis? | false |
 <br>
 <br>
 <h2 align="center">Backup Load</h2>
 
 Allows you to load a backup on a Discord server!  <mark>be carefully when using this function!</mark>
 ```
-$backupLoad[backupId;maxMessages?;clearGuild?;loadMain?;loadRolesAssignments?;loadEmojis?]
+$backupLoad[ID;max?;clear?;main?;roles?;emojis?]
 ```
 ```js
 // command example
@@ -76,6 +85,15 @@ client.command({
 // will load the backup
 // with id: 1294817399230028371
 ```
+### parameters
+| field | type | description | required |
+| :---: | :---: | :---: | :---: |
+| ID | snowflake | the backup id | true |
+| max | number | max messages load per channels | false |
+| clear | boolean | clear guild before load the backup? | false |
+| main | boolean | load the main backup? | false |
+| roles | boolean | load all roles assignment to all members? | false |
+| emojis | boolean | load all emojis? | false |
 <br>
 <br>
 <h2 align="center">Backup List</h2>
@@ -93,6 +111,10 @@ client.command({
 // will return all backup ids
 // from the backups folder
 ```
+### parameters
+| field | type | required |
+| :---: | :---: | :---: |
+| separator | string | false |
 <br>
 <br>
 <h2 align="center">Backup Remove</h2>
@@ -111,6 +133,10 @@ client.command({
 // will remove the backup
 // with id: 1294817399230028371
 ```
+### parameters
+| field | type | required |
+| :---: | :---: | :---: |
+| backupId | snowflake | true |
 <br>
 <br>
 <h2 align="center">Backup Fetch</h2>
@@ -129,27 +155,14 @@ client.command({
 // will return the backup channels data
 // with id: 1294817399230028371
 ```
-**Backup Fetch Type:**
-- `id`
-- `size`
-- `timestamp`
-- `name`
-- `guildid`
-- `icon`
-- `iconbase64`
-- `region`
-- `verificationlevel`
-- `explicitcontentfilter`
-- `defaultmessagenotifications`
-- `afkchannelid`
-- `afktimeout`
-- `roles`
-- `channels`
-- `categories`
-- `bans`
-- `emojis`
-- `widget`
-- `automoderationrules`
+### parameters
+| field | type | required |
+| :---: | :---: | :---: |
+| backupId | snowflake | true |
+| type | string | true |
+
+### fetch type
+`id`  `size`  `timestamp`  `name`  `guildid`  `icon`  `iconbase64`  `region`  `verificationlevel`  `explicitcontentfilter`  `defaultmessagenotifications`  `afkchannelid`  `afktimeout`  `roles`  `channels`  `categories`  `bans`  `emojis`  `widget`  `automoderationrules`
 <br>
 <br>
 <br>
