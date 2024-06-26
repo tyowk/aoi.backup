@@ -26,7 +26,7 @@ module.exports = class BackupCreate {
             ].filter(item => item !== null && item !== undefined);
 
             const backupData = await this.backup.create(d.guild, {
-                maxMessagesPerChannel: Math.min(maxmessages, 100),
+                maxMessagesPerChannel: Math.min(maxmessages, 1000),
                 jsonSave: true,
                 jsonBeautify: true,
                 doNotBackup: dontbackup,
