@@ -1,6 +1,6 @@
 {
     "name": "aoi.backup",
-    "version": "1.0.2",
+    "version": "1.0.4",
     "description": "Aoi.backup - Easily manage discord server backups in Aoi.js",
     "main": "src/index.js",
     "scripts": {
@@ -11,8 +11,7 @@
     },
     "devDependencies": {
         "aoi.js": "^6.8.0",
-        "discord.js": "^14.14.1",
-        "nodemon": "^3.1.4"
+        "discord.js": "^14.14.1"
     },
     "author": "Tyowk <tyowk@outlook.com>",
     "license": "MIT",
