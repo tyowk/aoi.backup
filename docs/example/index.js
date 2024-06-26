@@ -1,5 +1,5 @@
 const { AoiClient } = require("aoi.js");
-const { AoiBackup } = require("../src/index.js");
+const { AoiBackup } = require("../../src/index.js");
 
 const client = new AoiClient({
     token: process.env.TOKEN,
