@@ -52,18 +52,17 @@ client.command({
     code: `$backupCreate[10;false;true;true;true;true]`
 });
 
-// will return the backup id
-// example: 1294817399230028371
+// return example: 1294817399230028371
 ```
 ### parameters
 | field | type | description| required |
 | :---: | :---: | :---: | :---: |
-| max | number | max messages per channels | false |
-| message | boolean | backup messages on every channels? | false |
-| channels | boolean | backup all channels? | false |
-| roles | boolean | backup all roles? | false |
-| bans | boolean | backup all members bans? | false |
-| emojis | boolean | backup all emojis? | false |
+| max | number | max messages per channels? default is `10` | false |
+| message | boolean | backup messages? default is `true` | false |
+| channels | boolean | backup channels? default is `true` | false |
+| roles | boolean | backup roles? default is `true` | false |
+| bans | boolean | backup members bans? default is `false` | false |
+| emojis | boolean | backup emojis? default is `false` | false |
 <br>
 <br>
 <h2 align="center">Backup Load</h2>
@@ -78,18 +77,17 @@ client.command({
     code: `$backupLoad[1294817399230028371;10;true;true;false;false]`
 });
 
-// will load the backup
-// with id 1294817399230028371
+// will load the backup on spesified server
 ```
 ### parameters
 | field | type | description | required |
 | :---: | :---: | :---: | :---: |
-| ID | snowflake | the backup id | true |
-| max | number | max messages load per channels | false |
-| clear | boolean | clear guild before load the backup? | false |
-| main | boolean | load the main backup? | false |
-| roles | boolean | load all roles assignment to all members? | false |
-| emojis | boolean | load all emojis? | false |
+| ID | snowflake | backup id | true |
+| max | number | max messages load? default is `10` | false |
+| clear | boolean | clear guild before load? default is `true` | false |
+| main | boolean | load the main backup? default is `true` | false |
+| roles | boolean | load roles assignment? default is `false` | false |
+| emojis | boolean | load all emojis? default is `false` | false |
 <br>
 <br>
 <h2 align="center">Backup List</h2>
@@ -101,15 +99,14 @@ $backupList[sep?]
 ```js
 client.command({
     name: 'list',
-    code: `$backupList[,]`
+    code: `$backupList[]`
 });
-// will return all backup ids
-// example: 1294817399230028371, 1204929773298372208
+// return 1294817399230028371, 1204929773298372208
 ```
 ### parameters
 | field | type | description | required |
 | :---: | :---: | :---: | :---: |
-| sep | string | separator between ids | false |
+| sep | string | separator between ids? default is `,` | false |
 <br>
 <br>
 <h2 align="center">Backup Remove</h2>
@@ -124,13 +121,12 @@ client.command({
     code: `$backupRemove[1294817399230028371]`
 });
 
-// will remove the backup
-// with id 1294817399230028371
+// will remove backup with id 1294817399230028371
 ```
 ### parameters
 | field | type | description | required |
 | :---: | :---: | :---: | :---: |
-| ID | snowflake | the backup id | true |
+| ID | snowflake | backup id | true |
 <br>
 <br>
 <h2 align="center">Backup Fetch</h2>
@@ -142,19 +138,29 @@ $backupFetch[ID;type]
 ```js
 client.command({
     name: 'fetch',
-    code: `$backupFetch[1294817399230028371;channels]`
+    code: `$backupFetch[1294817399230028371;roles]`
 });
 
-// will return the backup channels data
-// with id 1294817399230028371
+/*
+[{
+    "name": "@everyone",
+    "color": "#000000",
+    "hoist": false,
+    "position": 0,
+    "permissions": "1",
+    "mentionable": false
+},{
+...other roles will be shown here
+}]
+*/
 ```
 ### parameters
 | field | type | description | required |
 | :---: | :---: | :---: | :---: |
-| ID | snowflake | the backup id | true |
-| type | string | what data do you want to fetch? | true |
+| ID | snowflake | backup id | true |
+| data | string | data to retrieve? | true |
 
-### fetch type
+### data type
 `id`  `size`  `timestamp`  `name`  `guildid`  `icon`  `iconbase64`  `region`  `verificationlevel`  `explicitcontentfilter`  `defaultmessagenotifications`  `afkchannelid`  `afktimeout`  `roles`  `channels`  `categories`  `bans`  `emojis`  `widget`  `automoderationrules`
 <br>
 <br>
