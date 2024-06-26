@@ -10,7 +10,7 @@
 
 <h2 align="center">Installation</h2>
 
-```
+```sh
 npm install aoi.backup
 ```
 <br>
@@ -49,7 +49,7 @@ client.command({
 <h2 align="center">Backup Create</h2>
 
 Create a backup for the specified server. ***Note:** The backup will be saved in the folder that was previously set*
-```
+```sh
 $backupCreate[max?;members?;channels?;roles?;bans?;emojis?]
 ```
 ### parameters
@@ -66,7 +66,7 @@ $backupCreate[max?;members?;channels?;roles?;bans?;emojis?]
 <h2 align="center">Backup Load</h2>
 
 Allows you to load a backup on a Discord server!  <mark>be carefully when using this function!</mark>
-```
+```sh
 $backupLoad[ID;max?;clear?;main?;roles?;emojis?]
 ```
 ### parameters
@@ -83,7 +83,7 @@ $backupLoad[ID;max?;clear?;main?;roles?;emojis?]
 <h2 align="center">Backup List</h2>
 
 ***Note:*** `$backupList[]` *simply returns an list of Backup IDs, you must fetch the ID to get complete information.*
-```
+```sh
 $backupList[sep?]
 ```
 ### parameters
@@ -95,7 +95,7 @@ $backupList[sep?]
 <h2 align="center">Backup Remove</h2>
 
 Remove the backup from given ID. ***Warn:** once the backup is removed, it is impossible to recover it!*
-```
+```sh
 $backupRemove[ID]
 ```
 ### parameters
@@ -107,7 +107,7 @@ $backupRemove[ID]
 <h2 align="center">Backup Fetch</h2>
 
 Fetches information from a backup. The backup info provides a data, id, and size property.
-```
+```sh
 $backupFetch[ID;type]
 ```
 ### parameters
