@@ -10,13 +10,14 @@
 <br>
 <br>
 
-## Installation
-```sh
+<h2 align="center">Installation</h2>
+
+```
 npm install aoi.backup
 ```
 <br>
+<h2 align="center">Bot Setup</h2>
 
-## Bot Setup
 ```js
 const { AoiClient } = require("aoi.js");
 const { AoiBackup } = require("aoi.backup");
@@ -36,57 +37,114 @@ const client = new AoiClient({
 });
 
 const backup = new AoiBackup(client, './backups');
-
-// Command Example
-client.command({
-    name: "backupCreate",
-    code: `$backupCreate[10;false;true;true;false;false]` // return the Backup ID
-});
 ```
-**[See Aoi.backup documentation for more information](https://aoibackup.vercel.app)**
 <br>
 <br>
 <br>
+<br>
+<h2 align="center">Backup Create</h2>
 
-## Available Functions
-### Backup Create
+Create a backup for the specified server. ***Note:** The backup will be saved in the folder that was previously set*
 ```
 $backupCreate[maxMessages?;backupMembers?;backupChannels?;backupRoles?;backupBans?;backupEmojis?]
 ```
-> Create a backup for the specified server.
-### Backup Fetch
+```js
+// command example
+client.command({
+    name: 'create',
+    code: `$backupCreate[10;false;true;true;true;true]`
+});
+
+// will return the backup id
+// example: 1294817399230028371
 ```
-$backupFetch[backupId;type?]
-```
-> Fetches information from a backup. The backup info provides a data, id, and size property.
-### Backup Load
+<br>
+<br>
+<h2 align="center">Backup Load</h2>
+
+Allows you to load a backup on a Discord server!  <mark>be carefully when using this function!</mark>
 ```
 $backupLoad[backupId;maxMessages?;clearGuild?;loadMain?;loadRolesAssignments?;loadEmojis?]
 ```
-> Allows you to load a backup on a Discord server!
-### Backup List
+```js
+// command example
+client.command({
+    name: 'load',
+    code: `$backupLoad[1294817399230028371;10;true;true;false;false]`
+});
+
+// will load the backup
+// with id: 1294817399230028371
+```
+<br>
+<br>
+<h2 align="center">Backup List</h2>
+
+***Note:*** `$backupList[]` *simply returns an list of Backup IDs, you must fetch the ID to get complete information.*
 ```
 $backupList[separator?]
 ```
-> ***Note:*** `$backupList[]` *simply returns an list of Backup IDs, you must fetch the ID to get complete information.*
-### Backup Remove
+```js
+// command example
+client.command({
+    name: 'list',
+    code: `$backupList[,]`
+});
+// will return all backup ids
+// from the backups folder
+```
+<br>
+<br>
+<h2 align="center">Backup Remove</h2>
+
+Remove the backup from given ID. ***Warn:** once the backup is removed, it is impossible to recover it!*
 ```
 $backupRemove[backupId]
 ```
-> Remove the backup from given ID. ***Warn:** once the backup is removed, it is impossible to recover it!*
-<br>
-<br>
-<br>
-<br>
+```js
+// command example
+client.command({
+    name: 'remove',
+    code: `$backupRemove[1294817399230028371]`
+});
 
----
+// will remove the backup
+// with id: 1294817399230028371
+```
+<br>
+<br>
+<h2 align="center">Backup Fetch</h2>
+
+Fetches information from a backup. The backup info provides a data, id, and size property.
+```
+$backupFetch[backupId;type]
+```
+```js
+// command example
+client.command({
+    name: 'fetch',
+    code: `$backupFetch[1294817399230028371;channels]`
+});
+
+// will return the backup channels data
+// with id: 1294817399230028371
+```
+**Backup Fetch Type:**
+ + `channels`
+ + `categories`
+ + `roles`
+ + `wait i forgot :))`
+<br>
+<br>
+<br>
+<br>
 <p align="center">
   <a href="#">
-    <img width="150" src="https://github.com/tyowk/aoi.backup/blob/main/docs/assets/icon2.png?raw=true" alt="aoi.backup">
+    <img width="100" src="https://github.com/tyowk/aoi.backup/blob/main/docs/assets/icon1.png?raw=true" alt="aoi.backup">
   </a>
   <br>
-  <strong>Extension by Tyowk
+  <b>Extension by <a href="https://x.com/tyowk">Tyowk</a>
   <br>
-  Aoi.js by Akarui Development
-  </strong>
+  <a href="https://aoijs.org/">Aoi.js</a> by Akarui Development
+  </b>
 </p>
