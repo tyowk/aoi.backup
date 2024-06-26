@@ -8,7 +8,6 @@ module.exports = class BackupCreateFunc {
     async execute(d) {
         const data = d.util.aoiFunc(d);
         if (data.err) return d.error(data.err);
-
         try {
             const [
                 maxmessages = 0,
@@ -18,7 +17,7 @@ module.exports = class BackupCreateFunc {
                 bans = false,
                 emojis = false
             ] = data.inside.splits;
-
+            
             const dontbackup = [
                 channels ? null : 'channels',
                 roles ? null : 'roles',
@@ -26,7 +25,7 @@ module.exports = class BackupCreateFunc {
                 emojis ? null : 'emojis'
             ].filter(item => item !== null && item !== undefined);
 
-            const backupData = await this.backup.create(d.message.guild, {
+            const backupData = await this.backup.create(d.guild, {
                 maxMessagesPerChannel: parseInt(maxmessages >= 100 ? 100 : maxmessages, 10),
                 jsonSave: true,
                 jsonBeautify: true,
@@ -36,9 +35,7 @@ module.exports = class BackupCreateFunc {
             });
 
             data.result = backupData.id;
-            return {
-                code: d.util.setCode(data),
-            };
+            return { code: d.util.setCode(data) };
         } catch (err) {
             return d.aoiError.fnError(d, 'custom', {}, `${err.name}: ${err.message}`);
         }
