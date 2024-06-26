@@ -1,4 +1,4 @@
-module.exports = class BackupRemoveFunc {
+module.exports = class BackupRemove {
     constructor(backup) {
         this.name = '$backupRemove';
         this.type = 'djs';
