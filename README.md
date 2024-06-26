@@ -39,14 +39,6 @@ Create a backup for the specified server. ***Note:** The backup will be saved in
 ```
 $backupCreate[max?;members?;channels?;roles?;bans?;emojis?]
 ```
-```js
-client.command({
-    name: 'create',
-    code: `$backupCreate[1000;false;true;true;true;true]`
-});
-
-// return example: 1294817399230028371
-```
 ### parameters
 | field | type | description| required |
 | :---: | :---: | :---: | :---: |
@@ -63,14 +55,6 @@ client.command({
 Allows you to load a backup on a Discord server!  <mark>be carefully when using this function!</mark>
 ```
 $backupLoad[ID;max?;clear?;main?;roles?;emojis?]
-```
-```js
-client.command({
-    name: 'load',
-    code: `$backupLoad[1294817399230028371;1000;true;true;false;false]`
-});
-
-// will load the backup on spesified server
 ```
 ### parameters
 | field | type | description | required |
@@ -89,13 +73,6 @@ client.command({
 ```
 $backupList[sep?]
 ```
-```js
-client.command({
-    name: 'list',
-    code: `$backupList[]`
-});
-// return 1294817399230028371, 1204929773298372208
-```
 ### parameters
 | field | type | description | required |
 | :---: | :---: | :---: | :---: |
@@ -108,14 +85,6 @@ Remove the backup from given ID. ***Warn:** once the backup is removed, it is im
 ```
 $backupRemove[ID]
 ```
-```js
-client.command({
-    name: 'remove',
-    code: `$backupRemove[1294817399230028371]`
-});
-
-// will remove backup with id 1294817399230028371
-```
 ### parameters
 | field | type | description | required |
 | :---: | :---: | :---: | :---: |
@@ -127,25 +96,6 @@ client.command({
 Fetches information from a backup. The backup info provides a data, id, and size property.
 ```
 $backupFetch[ID;type]
-```
-```js
-client.command({
-    name: 'fetch',
-    code: `$backupFetch[1294817399230028371;roles]`
-});
-
-/*
-[{
-    "name": "@everyone",
-    "color": "#000000",
-    "hoist": false,
-    "position": 0,
-    "permissions": "1",
-    "mentionable": false
-},{
-...other roles will be shown here
-}]
-*/
 ```
 ### parameters
 | field | type | description | required |
