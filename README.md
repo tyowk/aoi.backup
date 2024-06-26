@@ -34,7 +34,7 @@ const client = new AoiClient({
     }
 });
 
-const canvas = new AoiBackup(client, './backups');
+const backup = new AoiBackup(client, './backups');
 
 // Ping Command Example
 client.command({
