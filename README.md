@@ -130,10 +130,26 @@ client.command({
 // with id: 1294817399230028371
 ```
 **Backup Fetch Type:**
- + `channels`
- + `categories`
- + `roles`
- + `wait i forgot :))`
+- `id`
+- `size`
+- `timestamp`
+- `name`
+- `guildid`
+- `icon`
+- `iconbase64`
+- `region`
+- `verificationlevel`
+- `explicitcontentfilter`
+- `defaultmessagenotifications`
+- `afkchannelid`
+- `afktimeout`
+- `roles`
+- `channels`
+- `categories`
+- `bans`
+- `emojis`
+- `widget`
+- `automoderationrules`
 <br>
 <br>
 <br>
