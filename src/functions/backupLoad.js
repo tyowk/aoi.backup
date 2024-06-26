@@ -17,16 +17,15 @@ module.exports = class BackupLoadFunc {
                 roles = false,
                 emojis = false
             ] = data.inside.splits;
-
-            if (!backupId) return throw new Error('No Backup ID Provided');
+            if (!backupId) throw new Error('No Backup ID Provided');
             
             const dontload = [
                 main ? null : 'main',
                 roles ? null : 'roleAssignments',
                 emojis ? null : 'emojis'
-            ].filter(item => item !== null && item !== undefined);
+            ].filter(item => item !== null);
 
-            await this.backup.load(backupId, d.message.guild, {
+            await this.backup.load(backupId, d.guild, {
                 clearGuildBeforeRestore: clearguild === 'true',
                 maxMessagesPerChannel: parseInt(maxmessages >= 100 ? 100 : maxmessages, 10),
                 speed: 250,
@@ -34,9 +33,7 @@ module.exports = class BackupLoadFunc {
             });
 
             data.result = null;
-            return {
-                code: d.util.setCode(data),
-            };
+            return { code: d.util.setCode(data) };
         } catch (err) {
             return d.aoiError.fnError(d, 'custom', {}, `${err.name}: ${err.message}`);
         }
