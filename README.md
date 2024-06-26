@@ -21,13 +21,26 @@ const { AoiClient } = require("aoi.js");
 const { AoiBackup } = require("aoi.backup");
 
 const client = new AoiClient({
-    token: 'Discord Bot Token',
-    prefix: 'Discord Bot Prefix',
     intents: ["Guilds", "GuildMessages", "MessageContent"],
-    events: ["onMessage"]
+    events: ["onMessage", "onInteractionCreate"],
+    prefix: "Discord Bot Prefix",
+    token: "Discord Bot Token",
+    database: {
+        type: "aoi.db",
+        db: require("@akarui/aoi.db"),
+        dbType: "KeyValue",
+        tables: ["main"],
+        securityKey: "a-32-characters-long-string-here"
+    }
 });
 
-const backup = new AoiBackup(client, './backups');
+const canvas = new AoiBackup(client, './backups');
+
+// Ping Command Example
+client.command({
+    name: "ping",
+    code: `Pong! $pingms`
+});
 ```
 <br>
 <br>
