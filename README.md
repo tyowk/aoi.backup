@@ -5,8 +5,6 @@
 </p>
 <br>
 <b><p align="center">Aoi.backup is an extension for aoi.js, empowering you to easily create and manage Discord server backups using your aoi.js bot.</p></b>
-
----
 <br>
 <br>
 
@@ -16,7 +14,7 @@
 npm install aoi.backup
 ```
 <br>
-<h2 align="center">Bot Setup</h2>
+<h2 align="center">Setup</h2>
 
 ```js
 const { AoiClient } = require("aoi.js");
@@ -49,7 +47,6 @@ Create a backup for the specified server. ***Note:** The backup will be saved in
 $backupCreate[max?;members?;channels?;roles?;bans?;emojis?]
 ```
 ```js
-// command example
 client.command({
     name: 'create',
     code: `$backupCreate[10;false;true;true;true;true]`
@@ -76,14 +73,13 @@ Allows you to load a backup on a Discord server!  <mark>be carefully when using 
 $backupLoad[ID;max?;clear?;main?;roles?;emojis?]
 ```
 ```js
-// command example
 client.command({
     name: 'load',
     code: `$backupLoad[1294817399230028371;10;true;true;false;false]`
 });
 
 // will load the backup
-// with id: 1294817399230028371
+// with id 1294817399230028371
 ```
 ### parameters
 | field | type | description | required |
@@ -100,66 +96,63 @@ client.command({
 
 ***Note:*** `$backupList[]` *simply returns an list of Backup IDs, you must fetch the ID to get complete information.*
 ```
-$backupList[separator?]
+$backupList[sep?]
 ```
 ```js
-// command example
 client.command({
     name: 'list',
     code: `$backupList[,]`
 });
 // will return all backup ids
-// from the backups folder
+// example: 1294817399230028371, 1204929773298372208
 ```
 ### parameters
-| field | type | required |
-| :---: | :---: | :---: |
-| separator | string | false |
+| field | type | description | required |
+| :---: | :---: | :---: | :---: |
+| sep | string | separator between ids | false |
 <br>
 <br>
 <h2 align="center">Backup Remove</h2>
 
 Remove the backup from given ID. ***Warn:** once the backup is removed, it is impossible to recover it!*
 ```
-$backupRemove[backupId]
+$backupRemove[ID]
 ```
 ```js
-// command example
 client.command({
     name: 'remove',
     code: `$backupRemove[1294817399230028371]`
 });
 
 // will remove the backup
-// with id: 1294817399230028371
+// with id 1294817399230028371
 ```
 ### parameters
-| field | type | required |
-| :---: | :---: | :---: |
-| backupId | snowflake | true |
+| field | type | description | required |
+| :---: | :---: | :---: | :---: |
+| ID | snowflake | the backup id | true |
 <br>
 <br>
 <h2 align="center">Backup Fetch</h2>
 
 Fetches information from a backup. The backup info provides a data, id, and size property.
 ```
-$backupFetch[backupId;type]
+$backupFetch[ID;type]
 ```
 ```js
-// command example
 client.command({
     name: 'fetch',
     code: `$backupFetch[1294817399230028371;channels]`
 });
 
 // will return the backup channels data
-// with id: 1294817399230028371
+// with id 1294817399230028371
 ```
 ### parameters
-| field | type | required |
-| :---: | :---: | :---: |
-| backupId | snowflake | true |
-| type | string | true |
+| field | type | description | required |
+| :---: | :---: | :---: | :---: |
+| ID | snowflake | the backup id | true |
+| type | string | what data do you want to fetch? | true |
 
 ### fetch type
 `id`  `size`  `timestamp`  `name`  `guildid`  `icon`  `iconbase64`  `region`  `verificationlevel`  `explicitcontentfilter`  `defaultmessagenotifications`  `afkchannelid`  `afktimeout`  `roles`  `channels`  `categories`  `bans`  `emojis`  `widget`  `automoderationrules`
