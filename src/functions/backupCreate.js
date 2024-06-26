@@ -8,15 +8,15 @@ module.exports = class BackupCreate {
     async execute(d) {
         const data = d.util.aoiFunc(d);
         if (data.err) return d.error(data.err);
+        
         try {
-            const [
-                maxmessages = 0,
-                backupmembers = false,
-                channels = true,
-                roles = true,
-                bans = false,
-                emojis = false
-            ] = data.inside.splits;
+            const splits = data.inside?.splits || [];
+            const maxmessages = splits[0] !== undefined ? parseInt(splits[0], 10) : 10;
+            const backupmembers = splits[1] !== undefined ? splits[1].toLowerCase() === 'true' : false;
+            const channels = splits[2] !== undefined ? splits[2].toLowerCase() === 'true' : true;
+            const roles = splits[3] !== undefined ? splits[3].toLowerCase() === 'true' : true;
+            const bans = splits[4] !== undefined ? splits[4].toLowerCase() === 'true' : false;
+            const emojis = splits[5] !== undefined ? splits[5].toLowerCase() === 'true' : false;
             
             const dontbackup = [
                 channels ? null : 'channels',
@@ -26,11 +26,11 @@ module.exports = class BackupCreate {
             ].filter(item => item !== null && item !== undefined);
 
             const backupData = await this.backup.create(d.guild, {
-                maxMessagesPerChannel: parseInt(maxmessages >= 100 ? 100 : maxmessages, 10),
+                maxMessagesPerChannel: Math.min(maxmessages, 100),
                 jsonSave: true,
                 jsonBeautify: true,
                 doNotBackup: dontbackup,
-                backupMembers: backupmembers === true,
+                backupMembers: backupmembers,
                 saveImages: 'base64'
             });
 
@@ -40,4 +40,4 @@ module.exports = class BackupCreate {
             return d.aoiError.fnError(d, 'custom', {}, `${err.name}: ${err.message}`);
         }
     }
-}
+};
