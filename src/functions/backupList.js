@@ -10,10 +10,10 @@ module.exports = class BackupListFunc {
         if (data.err) return d.error(data.err);
 
         try {
-            const [ separator ] = data.inside.splits;
+            const [ separator = ', '] = data.inside.splits;
             const backupList = this.backup.list();
 
-            data.result = backupList.join(separator || ', ');
+            data.result = backupList.join(separator);
             return {
                 code: d.util.setCode(data),
             };
