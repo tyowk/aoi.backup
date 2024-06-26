@@ -1,4 +1,4 @@
-module.exports = class BackupCreateFunc {
+module.exports = class BackupCreate {
     constructor(backup) {
         this.name = '$backupCreate';
         this.type = 'djs';
