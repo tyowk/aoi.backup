@@ -24,14 +24,7 @@ const client = new AoiClient({
     token: 'Discord Bot Token',
     prefix: 'Discord Bot Prefix',
     intents: ["Guilds", "GuildMessages", "MessageContent"],
-    events: ["onMessage"],
-    database: {
-        type: "aoi.db",
-        db: require("@akarui/aoi.db"),
-        dbType: "KeyValue",
-        tables: ["main"],
-        securityKey: "a-32-characters-long-string-here"
-    }
+    events: ["onMessage"]
 });
 
 const backup = new AoiBackup(client, './backups');
