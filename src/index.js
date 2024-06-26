@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const backup = require('@outwalk/discord-backup');
-const package = require('../package.json');
+const packageJson = require('../package.json');
 
 class AoiBackup {
     constructor(client, basePath = './backups') {
@@ -27,11 +27,11 @@ class AoiBackup {
             }
             
             try {
-                const res = await (await fetch(`https://registry.npmjs.org/${package.name}`, { headers: { "User-Agent": package.name }})).json();
-                if (!res.versions[package.version]) return console.log(`\x1b[34m[${package.name.toUpperCase()}]\x1b[0m :: \x1b[33mThis is a dev version. Some stuff may be incomplete or unstable.\x1b[0m`);
-                if (package.version !== res["dist-tags"].latest) return console.log(`\x1b[34m[${package.name.toUpperCase()}]\x1b[0m :: \x1b[31m${package.name} is outdated!\x1b[0m`);
+                const res = await (await fetch(`https://registry.npmjs.org/${packageJson.name}`, { headers: { "User-Agent": packageJson.name }})).json();
+                if (!res.versions[packageJson.version]) return console.log(`\x1b[34m[${packageJso .name.toUpperCase()}]\x1b[0m :: \x1b[33mThis is a dev version. Some stuff may be incomplete or unstable.\x1b[0m`);
+                if (packageJson.version !== res["dist-tags"].latest) return console.log(`\x1b[34m[${packageJson.name.toUpperCase()}]\x1b[0m :: \x1b[31m${packageJson.name} is outdated!\x1b[0m`);
             } catch (err) {
-                console.log(`\x1b[34m[${package.name.toUpperCase()}]\x1b[0m :: \x1b[31mThere was an error fetching ${package.name} info on npm.\x1b[0m`);
+                console.log(`\x1b[34m[${packageJson.name.toUpperCase()}]\x1b[0m :: \x1b[31mThere was an error fetching ${packageJson.name} info on npm.\x1b[0m`);
             }
         })();
     }
