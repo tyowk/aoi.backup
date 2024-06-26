@@ -9,14 +9,13 @@ module.exports = class BackupLoad {
         const data = d.util.aoiFunc(d);
         if (data.err) return d.error(data.err);
         try {
-            const [
-                backupId,
-                maxmessages = 0,
-                clearguild = true,
-                main = true,
-                roles = false,
-                emojis = false
-            ] = data.inside.splits;
+            const splits = data.inside?.splits || [];
+            const backupId = splits[0]
+            const maxmessages = splits[1] !== undefined ? parseInt(splits[0], 10) : 10;
+            const clearguild = splits[2] !== undefined ? splits[1].toLowerCase() === 'true' : true;
+            const main = splits[3] !== undefined ? splits[2].toLowerCase() === 'true' : true;
+            const roles = splits[4] !== undefined ? splits[3].toLowerCase() === 'true' : false;
+            const emojis = splits[5] !== undefined ? splits[4].toLowerCase() === 'true' : false;
             if (!backupId) throw new Error('No Backup ID Provided');
             
             const dontload = [
