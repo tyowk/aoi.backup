@@ -57,12 +57,12 @@ client.command({
 ### parameters
 | field | type | description| required |
 | :---: | :---: | :---: | :---: |
-| max | number | max messages per channels? default is `10` | false |
-| message | boolean | backup messages? default is `true` | false |
-| channels | boolean | backup channels? default is `true` | false |
-| roles | boolean | backup roles? default is `true` | false |
-| bans | boolean | backup members bans? default is `false` | false |
-| emojis | boolean | backup emojis? default is `false` | false |
+| max? | number | max messages per channels? default is `10` | false |
+| message? | boolean | backup messages? default is `true` | false |
+| channels? | boolean | backup channels? default is `true` | false |
+| roles? | boolean | backup roles? default is `true` | false |
+| bans? | boolean | backup members bans? default is `false` | false |
+| emojis? | boolean | backup emojis? default is `false` | false |
 <br>
 <br>
 <h2 align="center">Backup Load</h2>
@@ -83,11 +83,11 @@ client.command({
 | field | type | description | required |
 | :---: | :---: | :---: | :---: |
 | ID | snowflake | backup id | true |
-| max | number | max messages load? default is `10` | false |
-| clear | boolean | clear guild before load? default is `true` | false |
-| main | boolean | load the main backup? default is `true` | false |
-| roles | boolean | load roles assignment? default is `false` | false |
-| emojis | boolean | load all emojis? default is `false` | false |
+| max? | number | max messages load? default is `10` | false |
+| clear? | boolean | clear guild before load? default is `true` | false |
+| main? | boolean | load the main backup? default is `true` | false |
+| roles? | boolean | load roles assignment? default is `false` | false |
+| emojis? | boolean | load all emojis? default is `false` | false |
 <br>
 <br>
 <h2 align="center">Backup List</h2>
@@ -106,7 +106,7 @@ client.command({
 ### parameters
 | field | type | description | required |
 | :---: | :---: | :---: | :---: |
-| sep | string | separator between ids? default is `,` | false |
+| sep? | string | separator between ids? default is `,` | false |
 <br>
 <br>
 <h2 align="center">Backup Remove</h2>
