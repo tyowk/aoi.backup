@@ -11,7 +11,7 @@ module.exports = class BackupCreate {
         
         try {
             const splits = data.inside?.splits || [];
-            const maxmessages = splits[0] !== undefined ? parseInt(splits[0], 10) : 10;
+            const maxmessages = splits[0] !== undefined ? parseInt(splits[0], 10) : 1000;
             const backupmembers = splits[1] !== undefined ? splits[1].toLowerCase() === 'true' : false;
             const channels = splits[2] !== undefined ? splits[2].toLowerCase() === 'true' : true;
             const roles = splits[3] !== undefined ? splits[3].toLowerCase() === 'true' : true;
@@ -30,7 +30,7 @@ module.exports = class BackupCreate {
                 jsonSave: true,
                 jsonBeautify: true,
                 doNotBackup: dontbackup,
-                backupMembers: backupmembers,
+                backupMembers: backupmembers === true,
                 saveImages: 'base64'
             });
 
