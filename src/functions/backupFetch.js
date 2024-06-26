@@ -9,13 +9,13 @@ module.exports = class BackupFetchFunction {
         const data = d.util.aoiFunc(d);
         if (data.err) return d.error(data.err);
         try {
-            const [ backupId, type ] = data.inside.splits.map(item => item.toLowerCase());
+            const [ backupId, dataType ] = data.inside.splits.map(item => item.toLowerCase());
             if (!backupId) throw new Error('No Backup ID Provided');
-            if (!type) throw new Error('No Backup Data Type Provided');
+            if (!dataType) throw new Error('No Backup Data Type Provided');
             const backupData = await this.backup.fetch(backupId);
             if (!backupData) throw new Error('No Backup Found');
             let result;
-            switch (type) {
+            switch (dataType) {
                 case 'id':
                     result = backupData.id;
                     break;
