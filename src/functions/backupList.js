@@ -5,7 +5,7 @@ module.exports = class BackupListFunc {
         this.backup = backup;
     }
 
-    async execute(d) {
+    execute(d) {
         const data = d.util.aoiFunc(d);
         if (data.err) return d.error(data.err);
         try {
