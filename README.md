@@ -51,29 +51,29 @@ client.command({
 ## Available Functions
 ### Backup Create
 ```
-$backupCreate[max messages?;backup members?;backup channels?;backup roles?;backup bans?;backup emojis?]
+$backupCreate[maxMessages?;backupMembers?;backupChannels?;backupRoles?;backupBans?;backupEmojis?]
 ```
 > Create a backup for the specified server.
 ### Backup Fetch
 ```
-$backupFetch[backup id;type?]
+$backupFetch[backupId;type?]
 ```
 > Fetches information from a backup. The backup info provides a data, id, and size property.
 ### Backup Load
 ```
-$backupLoad[backup id;max messages?;clear guild?;load main?;load roles assignments?;load emojis?]
+$backupLoad[backupId;maxMessages?;clearGuild?;loadMain?;loadRolesAssignments?;loadEmojis?]
 ```
 > Allows you to load a backup on a Discord server!
 ### Backup List
 ```
 $backupList[separator?]
 ```
-> ***Note:*** `$backupList[sep?]` ***simply returns an list of Backup IDs, you must fetch the ID to get complete information.***
+> ***Note:*** `$backupList[]` *simply returns an list of Backup IDs, you must fetch the ID to get complete information.*
 ### Backup Remove
 ```
-$backupRemove[backup id]
+$backupRemove[backupId]
 ```
-> Remove the backup from given ID. ***Warn: once the backup is removed, it is impossible to recover it!***
+> Remove the backup from given ID. ***Warn:** once the backup is removed, it is impossible to recover it!*
 <br>
 <br>
 <br>
@@ -87,6 +87,6 @@ $backupRemove[backup id]
   <br>
   <strong>Extension by Tyowk
   <br>
-  Akarui Development Team
+  Aoi.js by Akarui Development
   </strong>
 </p>
