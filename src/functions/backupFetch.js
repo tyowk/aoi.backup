@@ -8,12 +8,15 @@ module.exports = class BackupFetch {
     async execute(d) {
         const data = d.util.aoiFunc(d);
         if (data.err) return d.error(data.err);
+
         try {
-            const [ backupId, dataType ] = data.inside.splits.map(item => item.toLowerCase());
+            const [backupId, dataType] = data.inside.splits.map(item => item.toLowerCase());
             if (!backupId) throw new Error('No Backup ID Provided');
             if (!dataType) throw new Error('No Backup Data Type Provided');
+
             const backupData = await this.backup.fetch(backupId);
             if (!backupData) throw new Error('No Backup Found');
+
             let result;
             switch (dataType) {
                 case 'id':
@@ -130,15 +133,18 @@ module.exports = class BackupFetch {
                         exemptChannels: rule.exemptChannels
                     }));
                     break;
-                default: throw new Error('Invalid Backup Data Type Provided');
+                default:
+                    throw new Error('Invalid Backup Data Type Provided');
             }
+
             if (typeof result !== 'string' && typeof result !== 'number' && result !== undefined) {
                 result = JSON.stringify(result, null, 2);
             }
+
             data.result = result;
             return { code: d.util.setCode(data) };
         } catch (err) {
             return d.aoiError.fnError(d, 'custom', {}, `${err.name}: ${err.message}`);
         }
     }
-}
+};
