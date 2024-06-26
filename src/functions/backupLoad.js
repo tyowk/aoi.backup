@@ -26,7 +26,7 @@ module.exports = class BackupLoad {
 
             await this.backup.load(backupId, d.guild, {
                 clearGuildBeforeRestore: clearguild === 'true',
-                maxMessagesPerChannel: maxmessages,
+                maxMessagesPerChannel: Math.min(maxmessages, 1000),
                 speed: 250,
                 doNotLoad: dontload
             });
