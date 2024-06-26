@@ -18,10 +18,8 @@ module.exports = class BackupLoadFunc {
                 emojis = false
             ] = data.inside.splits;
 
-            if (!backupId) {
-                return d.aoiError.fnError(d, 'custom', {}, 'No Backup ID Provided In');
-            }
-
+            if (!backupId) return throw new Error('No Backup ID Provided');
+            
             const dontload = [
                 main ? null : 'main',
                 roles ? null : 'roleAssignments',
