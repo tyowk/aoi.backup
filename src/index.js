@@ -27,8 +27,8 @@ class AoiBackup {
         fetch(`https://registry.npmjs.org/${packageJson.name}`, { headers: { "User-Agent": packageJson.name } })
             .then(res => res.json())
             .then(data => {
-                if (!data.versions[packageJson.version]) console.warn('\x1b[1m[\x1b[96mAoi.backup\x1b[0m\x1b[1m] :: \x1b[93mThis is a dev version. Some stuff may be incomplete or unstable\x1b[0m');
-                if (packageJson.version !== data["dist-tags"].latest) console.warn('\x1b[1m[\x1b[96mAoi.backup\x1b[0m\x1b[1m] :: \x1b[93mAoi.backup is outdated. Update to the latest version!\x1b[0m');
+                if (!data.versions[packageJson.version]) return console.warn('\x1b[1m[\x1b[96mAoi.backup\x1b[0m\x1b[1m] :: \x1b[93mThis is a dev version. Some stuff may be incomplete or unstable\x1b[0m');
+                if (packageJson.version !== data["dist-tags"].latest) return console.warn('\x1b[1m[\x1b[96mAoi.backup\x1b[0m\x1b[1m] :: \x1b[93mAoi.backup is outdated. Update to the latest version!\x1b[0m');
             })
             .catch(err => {
                 console.error('\x1b[1m[\x1b[96mAoi.backup\x1b[0m\x1b[1m] :: \x1b[91mAn error occurred:\x1b[0m', err);
