@@ -15,7 +15,7 @@ class AoiBackup {
                 client.functionManager.createFunction({
                     name: funcData.name,
                     type: funcData.type,
-                    code: funcData.execute.bind(funcData)
+                    code: funcData.run.bind(funcData)
                 });
             });
 
