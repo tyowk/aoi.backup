@@ -21,22 +21,22 @@ class AoiBackup {
                         code: funcData.execute.bind(funcData)
                     });
                 }
-                console.log(`\x1b[34m[${packageJson.name.toUpperCase()}]\x1b[0m :: Functions loaded successfully.`);
+                console.log('\x1b[1m[\x1b[96mAoi.backup\x1b[0m\x1b[1m] :: \x1b[92mFunctions loaded successfully!\x1b[0m');
             } catch (err) {
-                console.error(`\x1b[34m[${packageJson.name.toUpperCase()}]\x1b[0m :: \x1b[31mError loading functions:\x1b[0m`, err);
+                console.log('\x1b[1m[\x1b[96mAoi.backup\x1b[0m\x1b[1m] :: \x1b[91mAn error occurred: \x1b[0m', err);
             }
 
             try {
                 const res = await fetch(`https://registry.npmjs.org/${packageJson.name}`, { headers: { "User-Agent": packageJson.name } }).then(res => res.json());
                 if (!res.versions[packageJson.version]) {
-                    console.log(`\x1b[34m[${packageJson.name.toUpperCase()}]\x1b[0m :: \x1b[33mThis is a dev version. Some stuff may be incomplete or unstable.\x1b[0m`);
+                    console.log('\x1b[1m[\x1b[96mAoi.backup\x1b[0m\x1b[1m] :: \x1b[93mThis is a dev version. Some stuff may be incomplete or unstable\x1b[0m');
                     return;
                 }
                 if (packageJson.version !== res["dist-tags"].latest) {
-                    console.log(`\x1b[34m[${packageJson.name.toUpperCase()}]\x1b[0m :: \x1b[31m${packageJson.name} is outdated!\x1b[0m`);
+                    console.log('\x1b[1m[\x1b[96mAoi.backup\x1b[0m\x1b[1m] :: \x1b[93mAoi.backup is outdated. Update to latest version!\x1b[0m');
                 }
             } catch (err) {
-                console.log(`\x1b[34m[${packageJson.name.toUpperCase()}]\x1b[0m :: \x1b[31mThere was an error fetching ${packageJson.name} info on npm.\x1b[0m`);
+                console.log('\x1b[1m[\x1b[96mAoi.backup\x1b[0m\x1b[1m] :: \x1b[91mAn error occurred: \x1b[0m', err);
             }
         })();
     }
