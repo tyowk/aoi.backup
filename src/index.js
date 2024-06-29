@@ -9,7 +9,8 @@ class AoiBackup {
             if (!fs.existsSync(basePath)) fs.mkdirSync(basePath);
             backup.setStorageFolder(path.join(process.cwd(), basePath));
 
-            ['create', 'load', 'fetch', 'remove', 'list'].forEach(file => {
+            const files = fs.readdirSync(path.join(__dirname, 'functions'));
+            for (const file of files) {
                 const FuncClass = require(`./functions/${file}`);
                 const funcData = new FuncClass(backup);
                 client.functionManager.createFunction({
@@ -17,7 +18,7 @@ class AoiBackup {
                     type: funcData.type,
                     code: funcData.run.bind(funcData)
                 });
-            });
+            }
 
             console.log('\x1b[1m[\x1b[96mAoi.backup\x1b[0m\x1b[1m] :: \x1b[92mFunctions loaded successfully!\x1b[0m');
         } catch (err) {
