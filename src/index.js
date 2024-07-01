@@ -3,7 +3,7 @@ const path = require('path');
 const backup = require('@outwalk/discord-backup');
 const packageJson = require('../package.json');
 
-class AoiBackup {
+exports.AoiBackup = class AoiBackup {
     constructor(client, basePath = './backups') {
         try {
             if (!fs.existsSync(basePath)) fs.mkdirSync(basePath);
@@ -36,15 +36,3 @@ class AoiBackup {
             });
     }
 }
-
-module.exports = {
-    AoiBackup,
-    Backup: {
-        Create: backup.create,
-        Load: backup.load,
-        Fetch: backup.fetch,
-        Remove: backup.remove,
-        List: backup.list,
-        Folder: backup.setStorageFolder
-    }
-};
